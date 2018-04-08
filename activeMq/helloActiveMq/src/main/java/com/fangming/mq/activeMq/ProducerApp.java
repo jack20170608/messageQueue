@@ -1,6 +1,5 @@
 package com.fangming.mq.activeMq;
 
-import com.google.common.base.Strings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,7 +59,7 @@ public class ProducerApp {
         @Override
         public void run() {
             String messageContent = null;
-            for (int i=0; i<100; i++) {
+            for (int i=0; i< 3; i++) {
                 try {
                     Thread.sleep(1000L);
                     messageContent = String.format(messageFormat, id, i, destName);
