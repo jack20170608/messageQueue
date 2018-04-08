@@ -2,6 +2,7 @@ package com.fangming.mq.activeMq;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import com.fangming.mq.activeMq.ProducerApp.DesitinationType;
 
 import javax.jms.*;
 
@@ -11,38 +12,50 @@ public class ConsumerApp {
 
     public static void main(String[] args) throws JMSException {
         Session session = ActiveMqConfig.getSession();
-        //create target
-        Destination dest = session.createQueue(ActiveMqConfig.TEST_QUEUE);
-        //create consumer
-        MessageConsumer consumer = session.createConsumer(dest);
-        //set message Listener
-        consumer.setMessageListener(new EchoMessageListerer());
+        EchoMessageListerer listerer = new EchoMessageListerer();
+        Comsumer c1 = new Comsumer(1, DesitinationType.QUEUE, ActiveMqConfig.TEST_QUEUE, listerer, session);
+        Comsumer c2 = new Comsumer(2, DesitinationType.QUEUE, ActiveMqConfig.TEST_QUEUE, listerer, session);
+
+
+        Comsumer c3 = new Comsumer(3, DesitinationType.TOPIC, ActiveMqConfig.TEST_TOPIC, listerer, session);
+        Comsumer c4 = new Comsumer(4, DesitinationType.TOPIC, ActiveMqConfig.TEST_TOPIC, listerer, session);
     }
 
 
-    static class Comsumer implements Runnable {
+    static class Comsumer {
 
         private long id;
+        private String destination;
+        private MessageListener messageListener;
 
-        private MessageListener topicMessageListener;
-        private MessageListener queueMessageListener;
+        private Session session;
+        private ProducerApp.DesitinationType desitinationType;
+        private MessageConsumer messageConsumer;
 
-        public Comsumer(long id) {
+        public Comsumer(long id, DesitinationType desitinationType, String destination, MessageListener messageListener, Session session) {
             this.id = id;
+            this.desitinationType = desitinationType;
+            this.destination = destination;
+
+            this.messageListener = messageListener;
+            this.session = session;
+
+            Destination dest;
+            try {
+                //create target
+                if (desitinationType == ProducerApp.DesitinationType.QUEUE) {
+                    dest = session.createQueue(destination);
+                }else {
+                    dest = session.createTopic(destination);
+                }
+                //create consumer
+                MessageConsumer consumer = session.createConsumer(dest);
+                //set message Listener
+                consumer.setMessageListener(messageListener);
+            }catch (JMSException e){
+                LOGGER.error("JMS error.");
+            }
         }
-
-        public Comsumer(long id, MessageListener topicMessageListener, MessageListener queueMessageListener) {
-            this.id = id;
-            this.topicMessageListener = topicMessageListener;
-            this.queueMessageListener = queueMessageListener;
-        }
-
-        @Override
-        public void run() {
-
-        }
-
-
     }
 
     static class EchoMessageListerer implements MessageListener {
