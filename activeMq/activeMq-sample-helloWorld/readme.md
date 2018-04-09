@@ -1,6 +1,6 @@
 ## Overview
 
-This is an example of how use the Java JMS api with ActiveMQ.
+This is an example of how use the Java JMS api with ActiveMQ. 
 
 ## Prereqs
 
@@ -15,6 +15,7 @@ Run:
 
 ## Running the Examples
 
+## In terminal window
 In one terminal window run:
 
     java -cp target/openwire-example-0.1-SNAPSHOT.jar example.Listener
@@ -22,6 +23,17 @@ In one terminal window run:
 In another terminal window run:
 
     java -cp target/openwire-example-0.1-SNAPSHOT.jar com.fangming.mq.activeMq.Publisher
+
+## In the Workspace
+
+The message producer :
+
+    Publisher.main();
+
+The message comsumer :
+
+    Listener.main();
+
 
 You can control to which server the examples try to connect to by
 setting the following environment variables: 
