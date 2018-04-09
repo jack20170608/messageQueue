@@ -1,6 +1,6 @@
 ## Overview
 
-This is an example of how use the Java JMS api with ActiveMQ. 
+This is an example of how use the Java JMS api with ActiveMQ.
 
 ## Prereqs
 
