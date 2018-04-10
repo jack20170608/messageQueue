@@ -1,0 +1,7 @@
+queueMonitor
+  brokerUrl:
+  connectId:
+  username:
+  password:
+  browseQueues:
+
