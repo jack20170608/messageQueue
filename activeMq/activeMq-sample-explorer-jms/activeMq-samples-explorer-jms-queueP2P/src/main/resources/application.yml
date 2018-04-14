@@ -1,7 +1,13 @@
-queueMonitor
-  brokerUrl:
-  connectId:
-  username:
-  password:
-  browseQueues:
+queue:
+  brokerUrl: tcp://localhost:61616
+  connectID: connectId
+  username: username
+  password: password
+
+  monitor:
+    browseQueues: Q1,Q2,Q3
+    timeInterval : 10000
+
+  roundTrip:
+    times : 100
 
