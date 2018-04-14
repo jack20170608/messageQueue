@@ -1,4 +1,4 @@
-package com.fangming.mq.activeMq.samples.explorerJms;/*
+package com.fangming.mq.activeMq.samples.explorerJms.components;/*
  * � 2001-2009, Progress Software Corporation and/or its subsidiaries or affiliates.  All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");

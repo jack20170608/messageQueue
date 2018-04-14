@@ -11,3 +11,12 @@ queue:
   roundTrip:
     times : 100
 
+  requestReplier:
+    defaultQueue : Q1
+    defaultMode : LOWERCASE
+    requestContent : Good good work, day day UP.
+    requestInterval : 2000
+
+  transactionTalker:
+    sendQueue : SEND
+    receiveQueue : RECEIVE

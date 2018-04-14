@@ -1,4 +1,4 @@
-package com.fangming.mq.activeMq.samples.explorerJms;
+package com.fangming.mq.activeMq.samples.explorerJms.components;
 
 /*
 
@@ -27,6 +27,7 @@ Suggested demonstration:
 
 */
 
+import com.fangming.mq.activeMq.samples.explorerJms.ExitException;
 import com.google.common.collect.Lists;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.slf4j.Logger;
@@ -43,9 +44,9 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 @Component
-public class QueueMonitorService implements DisposableBean, Runnable {
+public class QueueMonitor implements DisposableBean, Runnable {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(QueueMonitorService.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(QueueMonitor.class);
 
     @Value("${queue.brokerUrl}")
     private String broker;
