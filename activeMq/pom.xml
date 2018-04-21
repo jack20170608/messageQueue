@@ -20,6 +20,7 @@
         <module>activeMq-sample-p2pAndTopic-compare</module>
         <module>activeMq-sample-helloWorld</module>
         <module>activeMq-sample-explorer-jms</module>
+        <module>activeMq-sample-spring</module>
     </modules>
     <packaging>pom</packaging>
 

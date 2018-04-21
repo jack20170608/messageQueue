@@ -1,0 +1,6 @@
+activeMq:
+  url: tcp://127.0.0.1:61616
+  userName: default
+  password: default
+  jms:
+    demoQueueName: demoQueue
