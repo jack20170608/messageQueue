@@ -1,7 +1,6 @@
 ### active Mq configuration
 spring:
   activemq:
-    brokerUrl: tcp://127.0.0.1:55555
     inMemory: true
     user: default
     password: default
