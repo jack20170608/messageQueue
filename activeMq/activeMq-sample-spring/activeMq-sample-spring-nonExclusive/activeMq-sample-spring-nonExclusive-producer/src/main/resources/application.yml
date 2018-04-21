@@ -1,0 +1,13 @@
+jms:
+  broker-url : tcp://127.0.0.1:61616
+  user : admin
+  password : admin
+
+spring:
+  datasource:
+    schema: classpath:import.sql
+
+logging:
+  level:
+    root: INFO
+    sample.mybatis.com.fangming.mq.activeMq.samples.nonExclusive.mapper: TRACE
