@@ -13,8 +13,8 @@ public class PubSubController {
     @Autowired
     private PubSubProducer pubSubProducer;
 
-    @RequestMapping(value = "/send")
-    public String send(@PathVariable String messageContent){
+    @RequestMapping(value = "/send/{messageContent}")
+    public String send(@PathVariable("messageContent") String messageContent){
         pubSubProducer.send(messageContent);
         return Constant.RESPONSE_SUCCESS;
     }
