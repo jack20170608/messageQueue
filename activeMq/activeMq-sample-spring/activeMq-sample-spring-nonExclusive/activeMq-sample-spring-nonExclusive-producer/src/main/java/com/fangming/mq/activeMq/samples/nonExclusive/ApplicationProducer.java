@@ -13,7 +13,7 @@ import javax.jms.ConnectionFactory;
 
 @SpringBootApplication
 @EnableJms
-public class Application {
+public class ApplicationProducer {
 
     @Value("${jms.broker-url}")
     private String jmsBrokerUrl;
@@ -24,12 +24,9 @@ public class Application {
     @Value("${jms.password}")
     private String jmsPassword;
 
-    /**
-     * 创建 ActiveMQ 的连接工厂
-     */
+
     @Bean
     public ConnectionFactory connectionFactory(){
-//        BaseConstant
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
         connectionFactory.setBrokerURL(jmsBrokerUrl);
         connectionFactory.setUserName(jmsUser);
@@ -37,9 +34,6 @@ public class Application {
         return connectionFactory;
     }
 
-    /**
-     * JMS 队列的模板类
-     */
     @Bean
     public JmsTemplate jmsQueueTemplate(){
         return new JmsTemplate(connectionFactory());
@@ -52,16 +46,14 @@ public class Application {
         return jmsTemplate;
     }
 
-    /**
-     * 本地事务
-     */
+
     @Bean
     public JmsTransactionManager jmsTransactionManager(){
         return new JmsTransactionManager(connectionFactory());
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationProducer.class, args);
     }
 
 }

@@ -13,7 +13,7 @@ import javax.jms.ConnectionFactory;
 
 @SpringBootApplication
 @EnableJms
-public class Application {
+public class ApplicationComsumer {
 
     @Value("${jms.broker-url}")
     private String jmsBrokerUrl;
@@ -24,9 +24,6 @@ public class Application {
     @Value("${jms.password}")
     private String jmsPassword;
 
-    /**
-     * construct connection factory
-     */
     @Bean
     public ConnectionFactory connectionFactory(){
         ActiveMQConnectionFactory connectionFactory = new ActiveMQConnectionFactory();
@@ -36,9 +33,6 @@ public class Application {
         return connectionFactory;
     }
 
-    /**
-     * JMS message listener factory
-     */
     @Bean(name = Constant.QUEUE_CONTAINER)
     public DefaultJmsListenerContainerFactory jmsQueueListenerContainerFactory() {
         DefaultJmsListenerContainerFactory factory =
@@ -65,7 +59,7 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(ApplicationComsumer.class, args);
     }
 
 }

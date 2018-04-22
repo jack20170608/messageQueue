@@ -5,11 +5,6 @@ jms:
   user : admin
   password : admin
 
-spring:
-  datasource:
-    schema: classpath:import.sql
-
 logging:
   level:
     root: INFO
-    sample.mybatis.com.fangming.mq.activeMq.samples.nonExclusive.mapper: TRACE

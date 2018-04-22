@@ -1,18 +1,23 @@
 package com.fangming.mq.activeMq.samples.nonExclusive.ptp;
 
 import com.fangming.mq.activeMq.samples.nonExclusive.Constant;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-/**
- * 点对点模式: 消费者2
- * Created by jason-geng on 5/21/17.
- */
 @Component
 public class PtpListener2 {
 
+    private static final Logger logger = LoggerFactory.getLogger(PtpListener1.class);
+
     @JmsListener(destination = Constant.QUEUE_NAME, containerFactory = Constant.QUEUE_CONTAINER)
     public void receive(String msg){
-        System.out.println("点对点模式2: " + msg);
+        if (StringUtils.equalsIgnoreCase(msg,"Bad")){
+            logger.info("P2P message listener 2 receive [bad] message .");
+            throw new RuntimeException("Internal process exception.");
+        }
+        logger.info("P2P message Listener 2 successfully process [{}]. " , msg);
     }
 }
