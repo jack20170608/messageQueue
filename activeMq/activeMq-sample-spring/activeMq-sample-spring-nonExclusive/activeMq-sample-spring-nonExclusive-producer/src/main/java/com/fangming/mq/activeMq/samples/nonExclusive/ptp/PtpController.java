@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by jason-geng on 5/21/17.
  */
 @RestController
-@RequestMapping(value = "/com/fangming/mq/activeMq/samples/nonExclusive/ptp")
+@RequestMapping(value = "ptp")
 public class PtpController {
 
     @Autowired

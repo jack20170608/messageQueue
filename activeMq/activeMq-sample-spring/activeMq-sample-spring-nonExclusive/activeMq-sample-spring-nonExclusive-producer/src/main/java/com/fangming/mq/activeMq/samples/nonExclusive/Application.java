@@ -11,10 +11,6 @@ import org.springframework.jms.core.JmsTemplate;
 
 import javax.jms.ConnectionFactory;
 
-/**
- * MQ 生产者
- * Created by jason-geng on 5/21/17.
- */
 @SpringBootApplication
 @EnableJms
 public class Application {

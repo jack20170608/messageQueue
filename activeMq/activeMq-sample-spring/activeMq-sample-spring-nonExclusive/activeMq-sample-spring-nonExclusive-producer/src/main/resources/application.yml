@@ -1,3 +1,5 @@
+server:
+  port: 8082
 jms:
   broker-url : tcp://127.0.0.1:61616
   user : admin

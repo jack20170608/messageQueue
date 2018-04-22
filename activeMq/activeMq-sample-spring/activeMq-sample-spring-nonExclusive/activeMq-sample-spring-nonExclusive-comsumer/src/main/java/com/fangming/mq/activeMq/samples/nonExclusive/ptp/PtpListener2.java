@@ -1,6 +1,6 @@
 package com.fangming.mq.activeMq.samples.nonExclusive.ptp;
 
-import com.example.jmsconsumer.Constant;
+import com.fangming.mq.activeMq.samples.nonExclusive.Constant;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 

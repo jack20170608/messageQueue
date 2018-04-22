@@ -5,7 +5,7 @@ package com.fangming.mq.activeMq.samples.nonExclusive;
  */
 public interface Constant {
 
-    String QUEUE_NAME = "com/fangming/mq/activeMq/samples/nonExclusive/ptp";
+    String QUEUE_NAME = "ptp";
 
     String TOPIC_NAME = "pubsub";
 
