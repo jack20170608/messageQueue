@@ -1,0 +1,11 @@
+description = 'A demo of messaging based microservices using Solace Messaging'
+
+subprojects {
+	apply plugin: 'java'
+	apply plugin: 'eclipse'
+	apply plugin: 'idea'
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '2.14'
+}
